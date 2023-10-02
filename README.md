@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Krypt - Web 3.0 Blockchain Application
 ![Krypt](https://i.ibb.co/DVF4tNW/image.png)
 
@@ -12,3 +13,6 @@ E-mail - enyelsequeira1994@gmail.com
 Want me to cover the project you've created? Send me an e-mail 👌
 
 ## Launch your development career with project-based coaching - https://www.jsmastery.pro
+=======
+# Capstone-Project
+>>>>>>> 6879c8d303cfc2a8d334088d01d49b34e7e89138
