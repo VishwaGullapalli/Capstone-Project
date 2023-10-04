@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Titan - Web 3.0 Blockchain Application
 ![Titan](https://i.ibb.co/DVF4tNW/image.png)
 
@@ -12,3 +13,6 @@ E-mail - enyelsequeira1994@gmail.com
 Want me to cover the project you've created? Send me an e-mail 👌
 
 ## Launch your development career with project-based coaching - https://www.jsmastery.pro
+=======
+# Capstone-Project
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559

@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
+<<<<<<< HEAD
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
+=======
+import { SiEthereum } from "react-icons/si";
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
 import { BsInfoCircle } from "react-icons/bs";
 
 import { TransactionContext } from "../context/TransactionContext";
@@ -38,10 +42,17 @@ const Welcome = () => {
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
+<<<<<<< HEAD
             Fraud Detection using Machine Learning & <br /> Transactions using Blockchain
           </h1>
           <p className="text-left mt-5 text-2xl text-white font-light md:w-9/12 w-11/12 text-base">
             Capstone Id : 20230240
+=======
+            Send Crypto <br /> across the world
+          </h1>
+          <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
+            Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
           </p>
           {!currentAccount && (
             <button
@@ -65,7 +76,11 @@ const Welcome = () => {
               Ethereum
             </div>
             <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
+<<<<<<< HEAD
               Random Forest
+=======
+              Web 3.0
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
             </div>
             <div className={companyCommonStyles}>Low Fees</div>
             <div className={`rounded-br-2xl ${companyCommonStyles}`}>
@@ -79,7 +94,11 @@ const Welcome = () => {
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
+<<<<<<< HEAD
                   <RiMoneyDollarCircleFill fontSize={21} color="#fff" />
+=======
+                  <SiEthereum fontSize={21} color="#fff" />
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
                 </div>
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
@@ -88,12 +107,20 @@ const Welcome = () => {
                   {shortenAddress(currentAccount)}
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
+<<<<<<< HEAD
                   Metamask wallet
+=======
+                  Ethereum
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
                 </p>
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+=======
+          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
             <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
             <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
             <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
@@ -113,6 +140,7 @@ const Welcome = () => {
                 </button>
               )}
           </div>
+<<<<<<< HEAD
 
           <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
             <Input placeholder="Card Number" name="Card Number" type="text" handleChange={handleChange} />
@@ -134,6 +162,8 @@ const Welcome = () => {
                 </button>
               )}
           </div>
+=======
+>>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
         </div>
       </div>
     </div>
