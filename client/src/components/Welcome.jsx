@@ -108,7 +108,7 @@ const Welcome = () => {
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
 <<<<<<< HEAD
-                  Metamask wallet
+                  Titan X Metamask wallet
 =======
                   Ethereum
 >>>>>>> 7361881045611bd9c78e0eb07a5f38c4c0426559
