@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
@@ -31,6 +31,12 @@ const Welcome = () => {
     if (!addressTo || !amount || !keyword || !message) return;
 
     sendTransaction();
+  };
+
+  const [isEthereumVisible, setIsEthereumVisible] = useState(true);
+
+  const handleButtonClick = (isEthereum) => {
+    setIsEthereumVisible(isEthereum);
   };
 
   return (
@@ -93,7 +99,71 @@ const Welcome = () => {
               </div>
             </div>
           </div>
-          <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+          <div className="container flex flex-col items-center justify-evenly">
+            <div className="flex flex-row space-x-4">
+              <button
+                type="button"
+                onClick={() => handleButtonClick(true)}
+                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+              >
+                Ethereum
+              </button>
+              <button
+                type="button"
+                onClick={() => handleButtonClick(false)}
+                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+              >
+                Bank Transfer
+              </button>
+            </div>
+
+            {isEthereumVisible ? (
+              <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+                <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
+                <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
+                <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
+                <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
+
+                <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+                {isLoading
+                  ? <Loader />
+                  : (
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                    >
+                      Send now
+                    </button>
+                  )}
+              </div>
+            ) : (
+              <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
+                <Input placeholder="Card Number" name="Card Number" type="text" handleChange={handleChange} />
+                <Input placeholder="Amount" name="Amount" type="number" handleChange={handleChange} />
+                <Input placeholder="CVV" name="CVV" type="text" handleChange={handleChange} />
+                <Input placeholder="Expiry" name="Expiry" type="text" handleChange={handleChange} />
+
+                <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+                {isLoading
+                  ? <Loader />
+                  : (
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                    >
+                      Send now
+                    </button>
+                  )}
+              </div>
+
+            )}
+          </div>
+          {/* Comment */}
+          {/* <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
             <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
             <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
             <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
@@ -112,9 +182,9 @@ const Welcome = () => {
                   Send now
                 </button>
               )}
-          </div>
-
-          <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
+          </div> */}
+          {/* Comment */}
+          {/* <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
             <Input placeholder="Card Number" name="Card Number" type="text" handleChange={handleChange} />
             <Input placeholder="Amount" name="Amount" type="number" handleChange={handleChange} />
             <Input placeholder="CVV" name="CVV" type="text" handleChange={handleChange} />
@@ -133,7 +203,7 @@ const Welcome = () => {
                   Send now
                 </button>
               )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
