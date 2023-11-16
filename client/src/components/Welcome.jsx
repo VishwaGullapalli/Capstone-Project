@@ -2,7 +2,11 @@ import React, { useContext, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { BsInfoCircle } from "react-icons/bs";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+
+>>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 import { TransactionContext } from "../context/TransactionContext";
 import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
