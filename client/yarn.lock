@@ -658,6 +658,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@remix-run/router@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.12.0.tgz"
+  integrity sha512-2hXv036Bux90e1GXTWSMfNzfDDK8LA8JYEWfyHxzvwdp6GyoWEovKc9cotb3KCKmkdwsIBuFGX7ScTWyiHv7Eg==
+
 "@rollup/pluginutils@^4.1.1":
   version "4.1.2"
   resolved "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-4.1.2.tgz"
@@ -825,14 +830,11 @@ ast-types-flow@^0.0.7:
   resolved "https://registry.npmjs.org/ast-types-flow/-/ast-types-flow-0.0.7.tgz"
   integrity sha1-9wtzXGvKGlycItmCw+Oef+ujva0=
 
-<<<<<<< HEAD
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 autoprefixer@^10.0.2, autoprefixer@^10.4.0:
   version "10.4.0"
   resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.0.tgz"
@@ -850,7 +852,6 @@ axe-core@^4.3.5:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.3.5.tgz"
   integrity sha512-WKTW1+xAzhMS5dJsxWkliixlO/PqC4VhmO9T4juNYcaTg9jzWiJsou6m5pxWYGfigWbwzJWeFY6z47a+4neRXA==
 
-<<<<<<< HEAD
 axios@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/axios/-/axios-1.5.1.tgz"
@@ -860,8 +861,6 @@ axios@^1.5.1:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -1026,7 +1025,6 @@ color@^4.0.1:
     color-convert "^2.0.1"
     color-string "^1.9.0"
 
-<<<<<<< HEAD
 combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
@@ -1034,8 +1032,6 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 commander@^8.0.0:
   version "8.3.0"
   resolved "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz"
@@ -1146,14 +1142,11 @@ defined@^1.0.0:
   resolved "https://registry.npmjs.org/defined/-/defined-1.0.0.tgz"
   integrity sha1-yY2bzvdWdBiOEQlpFRGZ45sfppM=
 
-<<<<<<< HEAD
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 detective@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/detective/-/detective-5.2.0.tgz"
@@ -1632,7 +1625,6 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
-<<<<<<< HEAD
 follow-redirects@^1.15.0:
   version "1.15.3"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.3.tgz"
@@ -1647,8 +1639,6 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 fraction.js@^4.1.1:
   version "4.1.2"
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.1.2.tgz"
@@ -2201,7 +2191,6 @@ micromatch@^4.0.4:
     braces "^3.0.1"
     picomatch "^2.2.3"
 
-<<<<<<< HEAD
 mime-db@1.52.0:
   version "1.52.0"
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz"
@@ -2214,8 +2203,6 @@ mime-types@^2.1.12:
   dependencies:
     mime-db "1.52.0"
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 mini-svg-data-uri@^1.2.3:
   version "1.4.3"
   resolved "https://registry.npmjs.org/mini-svg-data-uri/-/mini-svg-data-uri-1.4.3.tgz"
@@ -2537,14 +2524,11 @@ prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-<<<<<<< HEAD
 proxy-from-env@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
-=======
->>>>>>> 6bc447273877ebc7f35535999408642a4a199ca8
 punycode@^2.1.0:
   version "2.1.1"
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
@@ -2570,7 +2554,7 @@ quick-lru@^5.1.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-react-dom@^17.0.0, react-dom@>=16.13, "react-dom@>=16.8 || ^17.0.0":
+react-dom@^17.0.0, react-dom@>=16.13, react-dom@>=16.8, "react-dom@>=16.8 || ^17.0.0":
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -2599,6 +2583,21 @@ react-refresh@^0.11.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
+react-router-dom@^6.19.0:
+  version "6.19.0"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.19.0.tgz"
+  integrity sha512-N6dWlcgL2w0U5HZUUqU2wlmOrSb3ighJmtQ438SWbhB1yuLTXQ8yyTBMK3BSvVjp7gBtKurT554nCtMOgxCZmQ==
+  dependencies:
+    "@remix-run/router" "1.12.0"
+    react-router "6.19.0"
+
+react-router@6.19.0:
+  version "6.19.0"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-6.19.0.tgz"
+  integrity sha512-0W63PKCZ7+OuQd7Tm+RbkI8kCLmn4GPjDbX61tWljPxWgqTKlEpeQUwPkT1DRjYhF8KSihK0hQpmhU4uxVMcdw==
+  dependencies:
+    "@remix-run/router" "1.12.0"
+
 react-use-measure@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz"
@@ -2606,7 +2605,7 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
-react@*, react@^17.0.0, react@>=16.13, "react@>=16.8 || ^17.0.0", react@17.0.2:
+react@*, react@^17.0.0, react@>=16.13, react@>=16.8, "react@>=16.8 || ^17.0.0", react@17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
