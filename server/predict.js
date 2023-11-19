@@ -1,64 +1,24 @@
-// // Node.js code
-
-// const { exec } = require('child_process');
-
-// // Input data for prediction
-// const inputData = [741,5674547.89,5674547.89,5674547.89,0.0,0.0,1];  // Modify this as per your requirement
-
-// // Send input data to the Python script and receive the predictions
-// const pythonProcess = exec('python predict.py', (error, stdout, stderr) => {
-//   if (error) {
-//     console.error(`Error executing Python script: ${error}`);
-//     return;
-//   }
-
-//   const [rfPrediction, nnPrediction] = stdout.trim().split('\n');
-//   // console.log(`Python script output: ${stdout}`);
-
-//   console.log(rfPrediction);
-//   console.log(nnPrediction);
-// });
-
-// pythonProcess.stdin.write(inputData.join(',') + '\n');
-// pythonProcess.stdin.end();
-
-
 const express = require('express');
 const { exec } = require('child_process');
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+const { backend } = require('@tensorflow/tfjs');
 
 const app = express();
 const port = 3000;
+
+const secretKey = backend.env.JWT_SECRET_KEY;
 
 // Enable CORS for all routes
 app.use(cors());
 
 app.use(express.json());
 
+app.use(bodyParser.json());
 
-// app.post('/predict', (req, res) => {
-//   const inputData = req.body.inputData;  // Extract input data from the request body
-
-//   if (!inputData || !Array.isArray(inputData)) {
-//     res.status(400).json({ error: 'Invalid input data' }); // Sending error as JSON
-//     return;
-//   }
-
-//   // Send input data to the Python script and receive the predictions
-//   const pythonProcess = exec('python predict.py', (error, stdout, stderr) => {
-//     if (error) {
-//       console.error(`Error executing Python script: ${error}`);
-//       res.status(500).json({ error: 'Error executing Python script' }); // Sending error as JSON
-//       return;
-//     }
-
-//     const [rfPrediction, nnPrediction] = stdout.trim().split('\n');
-//     res.json({ rfPrediction, nnPrediction }); // Sending predictions as JSON
-//   });
-
-//   pythonProcess.stdin.write(inputData.join(',') + '\n');
-//   pythonProcess.stdin.end();
-// });
+app.use(cookieParser());
 
 app.post('/predict', (req, res) => {
   const inputData = req.body.inputData;  // Extract input data from the request body
@@ -82,6 +42,44 @@ app.post('/predict', (req, res) => {
 
   pythonProcess.stdin.write(inputData.join(',') + '\n');
   pythonProcess.stdin.end();
+});
+
+
+// Middleware to verify JWT token
+const verifyToken = (req, res, next) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(401).send('Unauthorized');
+  }
+
+  jwt.verify(token, secretKey, (err, user) => {
+    if (err) {
+      return res.status(403).send('Invalid token');
+    }
+    req.user = user;
+    next();
+  });
+};
+
+app.post('/login', (req, res) => {
+  // Authenticate user (validate credentials)
+  const user = { id: 1, username: 'exampleUser' };
+
+  // Create and send JWT token
+  const token = jwt.sign(user, secretKey);
+  res.cookie('token', token, { httpOnly: true });
+  res.send('Login successful');
+});
+
+app.post('/logout', (req, res) => {
+  // Clear JWT token on logout
+  res.clearCookie('token');
+  res.send('Logout successful');
+});
+
+app.get('/dashboard', verifyToken, (req, res) => {
+  res.send(`Welcome, ${req.user.username}!`);
 });
 
 app.listen(port, () => {
