@@ -39,9 +39,11 @@ const Navbar = () => {
             to={item.to}
           />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
-          <Link to="/login">Login</Link>
-        </li>
+        <Link to="/login">
+          <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+            Login
+          </li>
+        </Link>
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
