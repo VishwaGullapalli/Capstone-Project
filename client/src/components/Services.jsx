@@ -38,24 +38,28 @@ const Services = () => (
           title="Name : GULLIPALLI VISHWA"
           icon={<BiSearchAlt fontSize={21} className="text-white" />}
           subtitle="Reg : 20BCI7118      "
+          src = "https://www.linkedin.com/in/vishwa-gullapalli-b782391b8/"
         />
         <ServiceCard
           color="bg-[#F84550]"
           title="Name : M SURYA TEJA REDDY"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
           subtitle="Reg : 20BCN7021      "
+          src ="https://www.linkedin.com/in/surya-teja-reddy-m-52b122105/"
         />
         <ServiceCard
           color="bg-[#2952E3]"
           title="Name : CH V VISWANADHA KASYAP        "
           icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
           subtitle="Reg : 20BCE7457      "
+          src = "https://www.linkedin.com/in/kasyap-chadalawada-552388219/"
         />
         <ServiceCard
           color="bg-[#55BA28]"
           title="Guided by : Dr. NIHAR RANJAN PRADHAN "
           icon={<GiTeacher fontSize={21} className="text-white" />}
           subtitle="      "
+          src =""
         />
       </div>
     </div>
