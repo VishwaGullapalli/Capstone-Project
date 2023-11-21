@@ -4,15 +4,20 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const { backend } = require('@tensorflow/tfjs');
 
 const app = express();
 const port = 3000;
 
-const secretKey = backend.env.JWT_SECRET_KEY;
+// const secretKey = process.env.JWT_SECRET_KEY;
+
+const corsOptions = {
+  origin: 'https://titanwallet.me',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.json());
 

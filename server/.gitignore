@@ -1,4 +1,5 @@
 creditcard.csv
 PS_20174392719_1491204439457_log.csv
 *.env
-node_modules/
+node_modules/*
+KeyGen.jsx

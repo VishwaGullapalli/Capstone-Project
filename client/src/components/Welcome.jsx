@@ -8,7 +8,8 @@ import { TransactionContext } from "../context/TransactionContext";
 import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
 
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+const companyCommonStyles =
+  "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -22,7 +23,14 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+  } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
@@ -42,7 +50,7 @@ const Welcome = () => {
       "Origin New Balance": OriginNewBalance,
       "Destination Old Balance": DestinationOldBalance,
       Destination,
-      Flagged
+      Flagged,
     } = formData;
 
     e.preventDefault();
@@ -55,8 +63,8 @@ const Welcome = () => {
         parseFloat(OriginNewBalance),
         parseFloat(DestinationOldBalance),
         parseFloat(Destination),
-        parseInt(Flagged, 10)
-      ]
+        parseInt(Flagged, 10),
+      ],
     };
 
     // Send data to the server using the specified format
@@ -64,7 +72,10 @@ const Welcome = () => {
     console.log("Data to send:", dataToSend);
 
     try {
-      const response = await axios.post("http://localhost:3000/predict", dataToSend);
+      const response = await axios.post(
+        "https://titanwallet.centralindia.cloudapp.azure.com/predict",
+        dataToSend
+      );
       console.log("RF Prediction:", response.data.rfPrediction);
       console.log("NN Prediction:", response.data.nnPrediction);
     } catch (error) {
@@ -83,7 +94,8 @@ const Welcome = () => {
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
-            Fraud Detection using Machine Learning & <br /> Transactions using Blockchain
+            Fraud Detection using Machine Learning & <br /> Transactions using
+            Blockchain
           </h1>
           <p className="text-left mt-5 text-2xl text-white font-light md:w-9/12 w-11/12 sm:text-base">
             Capstone Id : 20230240
@@ -158,50 +170,104 @@ const Welcome = () => {
 
             {isEthereumVisible ? (
               <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
-                <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
-                <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
-                <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
+                <Input
+                  placeholder="Address To"
+                  name="addressTo"
+                  type="text"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Amount (ETH)"
+                  name="amount"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Keyword (Gif)"
+                  name="keyword"
+                  type="text"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Enter Message"
+                  name="message"
+                  type="text"
+                  handleChange={handleChange}
+                />
 
                 <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-                {isLoading
-                  ? <Loader />
-                  : (
-                    <button
-                      type="button"
-                      onClick={handleSubmit}
-                      className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                    >
-                      Send now
-                    </button>
-                  )}
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleSubmit}
+                    className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                  >
+                    Send now
+                  </button>
+                )}
               </div>
             ) : (
               <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
-                <Input placeholder="Step" name="Step" type="number" handleChange={handleChange} />
-                <Input placeholder="Amount" name="Amount" type="number" handleChange={handleChange} />
-                <Input placeholder="Origin Old Balance" name="Origin Old Balance" type="number" handleChange={handleChange} />
-                <Input placeholder="Origin New Balance" name="Origin New Balance" type="number" handleChange={handleChange} />
-                <Input placeholder="Destination Old Balance" name="Destination Old Balance" type="number" handleChange={handleChange} />
-                <Input placeholder="Destination New Balance" name="Destination" type="number" handleChange={handleChange} />
-                <Input placeholder="Flagged" name="Flagged" type="number" handleChange={handleChange} />
+                <Input
+                  placeholder="Step"
+                  name="Step"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Amount"
+                  name="Amount"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Origin Old Balance"
+                  name="Origin Old Balance"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Origin New Balance"
+                  name="Origin New Balance"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Destination Old Balance"
+                  name="Destination Old Balance"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Destination New Balance"
+                  name="Destination"
+                  type="number"
+                  handleChange={handleChange}
+                />
+                <Input
+                  placeholder="Flagged"
+                  name="Flagged"
+                  type="number"
+                  handleChange={handleChange}
+                />
 
                 <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-                {isLoading
-                  ? <Loader />
-                  : (
-                    <button
-                      type="button"
-                      onClick={handleBankSubmit}
-                      className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                    >
-                      Send now
-                    </button>
-                  )}
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleBankSubmit}
+                    className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                  >
+                    Send now
+                  </button>
+                )}
               </div>
-
             )}
           </div>
           {}
