@@ -11,7 +11,8 @@ const port = 3000;
 // const secretKey = process.env.JWT_SECRET_KEY;
 
 const corsOptions = {
-  origin: 'https://titanwallet.me',
+  // origin: 'https://titanwallet.me',
+  origin: 'http://localhost:5173',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
@@ -41,8 +42,8 @@ app.post('/predict', (req, res) => {
       return;
     }
 
-    const [rfPrediction, nnPrediction] = stdout.trim().split('\n');
-    res.json({ rfPrediction, nnPrediction });
+    const [rfPrediction, nnPrediction, current_time, outString] = stdout.trim().split('\n');
+    res.json({ rfPrediction, nnPrediction, current_time, outString });
   });
 
   pythonProcess.stdin.write(inputData.join(',') + '\n');

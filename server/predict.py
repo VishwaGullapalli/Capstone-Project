@@ -2,6 +2,7 @@
 import pickle
 import sys
 import numpy as np
+import datetime
 from tensorflow.keras.models import load_model
 
 # Load the Random Forest model
@@ -24,7 +25,14 @@ rf_prediction = random_forest_model.predict(input_data)[0]
 # Neural Network prediction
 nn_prediction = neural_network_model.predict(input_data, verbose=None)
 nn_prediction = np.round(nn_prediction)[0][0]
+current_time = datetime.datetime.now()
+if nn_prediction == rf_prediction:
+    outString = "Transaction Successfully Completed"
+else:
+    outString = "Transaction Failed"
 
 # Send the predictions back to Node.js
 print(f'Random Forest Prediction: {rf_prediction}')
 print(f'Neural Network Prediction: {nn_prediction}')
+print(f'{current_time}')
+print(f'{outString}')
