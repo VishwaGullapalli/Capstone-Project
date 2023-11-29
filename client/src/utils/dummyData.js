@@ -1,5 +1,5 @@
 
-export default [
+let dummyData = [
   {
     id: 1,
     url: "https://cdn.myanimelist.net/s/common/uploaded_files/1448894697-26ad0120e61719bf6bf745bbab4c3a4a.gif",
@@ -55,3 +55,13 @@ export default [
     addressTo: "0x8aa395Ab97837576aF9cd6946C79024ef1acfdbE",
   },
 ];
+
+export function setDummyData(newData) {
+  dummyData = newData;
+}
+
+export function getDummyData() {
+  return dummyData;
+}
+
+// export default dummyData;

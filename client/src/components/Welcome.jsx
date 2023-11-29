@@ -7,6 +7,8 @@ import axios from "axios";
 import { TransactionContext } from "../context/TransactionContext";
 import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
+// import dummyData from "../utils/dummyData";
+import { getDummyData, setDummyData } from "../utils/dummyData";
 
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -44,26 +46,20 @@ const Welcome = () => {
 
   const handleBankSubmit = async (e) => {
     const {
-      Step,
-      Amount,
-      "Origin Old Balance": OriginOldBalance,
-      "Origin New Balance": OriginNewBalance,
-      "Destination Old Balance": DestinationOldBalance,
-      Destination,
-      Flagged,
+      "Sender Card Number": SenderCardNumber,
+      "Sender CVV/CVC": SenderCVVCVC,
+      "Receiver Card Number": ReceiverCardNumber,
+      "Transfer Amount": TransferAmount,
     } = formData;
 
     e.preventDefault();
 
     const dataToSend = {
       inputData: [
-        parseInt(Step, 10),
-        parseFloat(Amount),
-        parseFloat(OriginOldBalance),
-        parseFloat(OriginNewBalance),
-        parseFloat(DestinationOldBalance),
-        parseFloat(Destination),
-        parseInt(Flagged, 10),
+        parseFloat(SenderCardNumber),
+        parseInt(SenderCVVCVC, 10),
+        parseFloat(ReceiverCardNumber),
+        parseFloat(TransferAmount),
       ],
     };
 
@@ -73,11 +69,34 @@ const Welcome = () => {
 
     try {
       const response = await axios.post(
-        "https://titanwallet.centralindia.cloudapp.azure.com/predict",
+        "http://localhost:3000/predict",
+        // `${import.meta.env.VITE_BACKEND_URI}`,
         dataToSend
       );
+      // const prediction = response.data.rfPrediction && response.data.nnPrediction;
       console.log("RF Prediction:", response.data.rfPrediction);
       console.log("NN Prediction:", response.data.nnPrediction);
+      console.log("Current Time:", response.data.current_time);
+      console.log("Message:", response.data.outString);
+      const newData = {
+        id:
+          getDummyData().length > 0
+            ? getDummyData()[getDummyData().length - 1].id + 1
+            : 1,
+        url: "https://media.tenor.com/OATh5yeUlacAAAAC/shanks-one-piece.gif",
+        message: `${response.data.outString}`,
+        timestamp: `${response.data.current_time}`,
+        addressFrom: `${SenderCardNumber}`,
+        amount: `${TransferAmount}`,
+        addressTo: `${ReceiverCardNumber}`,
+      };
+      console.log(newData);
+      console.log(getDummyData());
+      // Add the new data to the existing array
+      const updatedData = [...getDummyData(), newData];
+      // Update the dummyData
+      setDummyData(updatedData);
+      console.log(getDummyData());
     } catch (error) {
       console.error("Error predicting:", error.message);
     }
@@ -212,44 +231,50 @@ const Welcome = () => {
             ) : (
               <div className=" p-5 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism">
                 <Input
-                  placeholder="Step"
-                  name="Step"
+                  placeholder="Sender Card Number"
+                  name="Sender Card Number"
                   type="number"
                   handleChange={handleChange}
                 />
                 <Input
-                  placeholder="Amount"
-                  name="Amount"
+                  placeholder="Sender CVV/CVC"
+                  name="Sender CVV/CVC"
                   type="number"
                   handleChange={handleChange}
                 />
+                {/* <Input
+                  placeholder="Sender Expiry Date"
+                  name="SenderExpiryDate"
+                  type="text"
+                  handleChange={handleChange}
+                /> */}
+                {/* <Input
+                  placeholder="Sender Bank Name"
+                  name="SenderBankName"
+                  type="text"
+                  handleChange={handleChange}
+                /> */}
                 <Input
-                  placeholder="Origin Old Balance"
-                  name="Origin Old Balance"
+                  placeholder="Receiver Card Number"
+                  name="Receiver Card Number"
                   type="number"
                   handleChange={handleChange}
                 />
-                <Input
-                  placeholder="Origin New Balance"
-                  name="Origin New Balance"
-                  type="number"
+                {/* <Input
+                  placeholder="Receiver Expiry Date"
+                  name="ReceiverExpiryDate"
+                  type=""
                   handleChange={handleChange}
-                />
-                <Input
-                  placeholder="Destination Old Balance"
-                  name="Destination Old Balance"
-                  type="number"
+                /> */}
+                {/* <Input
+                  placeholder="Receiver Bank Name"
+                  name="ReceiverBankName"
+                  type="text"
                   handleChange={handleChange}
-                />
+                /> */}
                 <Input
-                  placeholder="Destination New Balance"
-                  name="Destination"
-                  type="number"
-                  handleChange={handleChange}
-                />
-                <Input
-                  placeholder="Flagged"
-                  name="Flagged"
+                  placeholder="Transfer Amount"
+                  name="Transfer Amount"
                   type="number"
                   handleChange={handleChange}
                 />
